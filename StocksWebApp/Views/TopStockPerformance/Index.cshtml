@@ -1,0 +1,139 @@
+﻿@{
+    ViewData["Title"] = "Top Stock Performer";
+}
+@model TopStockPerformanceViewModel
+<link rel="stylesheet" type="text/css" href="~/css/chartist-plugin-tooltip.css" />
+<link rel="stylesheet" href="~/css/chartist.min.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="~/js/chartist.min.js"></script>
+<script src="~/js/chartist-plugin-tooltip.js"></script>
+
+<style>
+    .header {
+        display: inline-block;
+        background-image: url('/images/banner5.jpg');
+        width: 100%;
+        height: 200px;
+        background-size: cover;
+        margin-bottom: 15px;
+        box-shadow: 0px 5px 5px 0px #ccc;
+    }
+
+        .header h1 {
+            background-color: rgb(255, 255, 255, 0.5);
+            padding: 5px;
+            padding-left: 20px;
+            margin-top: 140px;
+            text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+        }
+
+    #kpiSelect {
+        margin-bottom: 10px;
+    }
+    .date-selection-section {
+        margin-bottom: 10px;
+    }
+    .submit-button {
+        margin-top: 10px;
+    }
+</style>
+
+<div class="row">
+    <div class="header">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+</div>
+
+@*Populate the company selector*@
+<div class="row">
+    <div class="jumbotron">
+        <form method="post"  asp-action="filter">
+            <select id="kpiSelect" name="kpiSelectMenu" class="form-control">
+                @foreach (var kpiKey in Model.kpiDict.Keys)
+                {
+                    @if (string.Compare(kpiKey, Model.kpi) == 0)
+                    {
+                        <option selected="selected" value="@kpiKey">@Model.kpiDict[kpiKey]</option>
+                    }
+                    else
+                    {
+                        <option value="@kpiKey">@Model.kpiDict[kpiKey]</option>
+                    }
+                }
+            </select>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+                @foreach (var tp in Model.timePeriods)
+                {
+                    @if (tp == Model.timePeriod)
+                    {
+                        <label class="btn btn-default active">
+                            @Html.RadioButtonFor(Model => Model.timePeriod, tp) @tp
+                            <!--<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1 Day-->
+                        </label>
+                    }
+                    else
+                    {
+                        <label class="btn btn-default">
+                            @Html.RadioButtonFor(Model => Model.timePeriod, tp) @tp
+                            <!--<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1 Day-->
+                        </label>
+                    }
+
+
+                }
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary submit-button">Search</button>
+        </form>
+    </div>
+</div>
+
+
+    @*Div that contains the table*@
+    <div class="row">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                            @Model.kpiDict[Model.kpi] - @Model.timePeriod Days
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <th>Company Abbreviation</th>
+                                    <th>Company Name</th>
+                                    <th>Price</th>
+                                </tr>
+                                @*Table Entry*@
+                                @foreach (var row in Model.companiesKPI)
+                                {
+                                    <tr>
+                                        <td scope="row">@row.rank</td>
+                                        <td>@row.companyAbriv</td>
+                                        <td>@row.companyName</td>
+                                        <td>@row.value</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    </script>

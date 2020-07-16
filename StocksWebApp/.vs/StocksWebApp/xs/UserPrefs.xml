@@ -1,0 +1,39 @@
+﻿<Properties StartupConfiguration="{259DB20D-6D7A-44B0-8980-CA0361900886}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/StockSummaryController.cs">
+    <Files>
+      <File FileName="Views/Home/Contact.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/PortfolioPerformance/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/TopStockPerformance/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="9" Column="80" />
+      <File FileName="Controllers/StockSummaryController.cs" Line="14" Column="6" />
+      <File FileName="Controllers/StockComparisonController.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="StocksWebApp" expanded="True">
+            <Node name="StocksWebApp" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="StockSummaryController.cs" selected="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+                <Node name="PortfolioPerformance" expanded="True" />
+                <Node name="Shared" expanded="True" />
+                <Node name="TopStockPerformance" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.StocksWebApp PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

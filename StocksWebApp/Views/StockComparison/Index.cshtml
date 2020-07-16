@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "Stock Comparison";
+}
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+</style>
+<h1 style="text-align: center">Stock Comparison</h1>
+
+
+<div class="row">
+    <table class="table table-hover table-dark" style="width:100%;text-align:center">
+        <tr>
+            <th style="text-align:center" colspan="6">Stock Info:</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>Select:</td>
+                <form action="selectStockDataOne" method="post">
+                    <td>
+                        <input style="text-align:center" type="text" name="nameOfStockOne" placeholder="StockName" />
+                        <input asp-area="" asp-controller="StockComparison" asp-action="CreateOne" style="text-align:center;margin-left:30%" type="submit" value="submit">
+
+                    </td>
+
+                    <td>
+
+                        <input style="text-align:center" type="text" name="nameOfStockTwo" placeholder="StockName" />
+                        <input asp-area="" asp-controller="StockComparison" asp-action="CreateOne" style="text-align:center;margin-left:30%" type="submit" value="submit">
+
+                    </td>
+
+                    <td>
+
+                        <input style="text-align:center" type="text" name="nameOfStockThree" placeholder="StockName" />
+                        <input asp-area="" asp-controller="StockComparison" asp-action="CreateOne" style="text-align:center;margin-left:30%" type="submit" value="submit">
+
+                    </td>
+
+                    <td>
+
+                        <input style="text-align:center" type="text" name="nameOfStockFour" placeholder="StockName" />
+                        <input asp-area="" asp-controller="StockComparison" asp-action="CreateOne" style="text-align:center;margin-left:30%" type="submit" value="submit">
+
+                    </td>
+
+                    <td>
+
+                        <input style="text-align:center" type="text" name="nameOfStockFive" placeholder="StockName" />
+                        <input asp-area="" asp-controller="StockComparison" asp-action="CreateOne" style="text-align:center;margin-left:30%" type="submit" value="submit">
+
+                    </td>
+                </form>
+            </tr>
+            <tr>
+                <td>Name of Stock:</td>
+                <td>@ViewBag.Stockname1</td>
+                <td>@ViewBag.Stockname2</td>
+                <td>@ViewBag.Stockname3</td>
+                <td>@ViewBag.Stockname4</td>
+                <td>@ViewBag.Stockname5</td>
+            </tr>
+            <tr>
+                <td>52 Week Low:</td>
+                <td>@ViewBag.fiftylow1</td>
+                <td>@ViewBag.fiftylow2</td>
+                <td>@ViewBag.fiftylow3</td>
+                <td>@ViewBag.fiftylow4</td>
+                <td>@ViewBag.fiftylow5</td>
+            </tr>
+            <tr>
+                <td>52 Week High:</td>
+                <td>@ViewBag.fiftyhigh1</td>
+                <td>@ViewBag.fiftyhigh2</td>
+                <td>@ViewBag.fiftyhigh3</td>
+                <td>@ViewBag.fiftyhigh4</td>
+                <td>@ViewBag.fiftyhigh5</td>
+            </tr>
+            <tr>
+                <td>Market Capitalization:</td>
+                <td>@ViewBag.marketCap1</td>
+                <td>@ViewBag.marketCap2</td>
+                <td>@ViewBag.marketCap3</td>
+                <td>@ViewBag.marketCap4</td>
+                <td>@ViewBag.marketCap5</td>
+            </tr>
+            <tr>
+                <td>Price to Earning Ratio</td>
+                <td>@ViewBag.priceEarnRatio1 </td>
+                <td>@ViewBag.priceEarnRatio2 </td>
+                <td>@ViewBag.priceEarnRatio3 </td>
+                <td>@ViewBag.priceEarnRatio4 </td>
+                <td>@ViewBag.priceEarnRatio5 </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
